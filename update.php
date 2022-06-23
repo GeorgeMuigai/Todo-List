@@ -1,23 +1,26 @@
 <?php
     include 'db.php';
+
+    // get the id of the task to be updated
     $id = $_GET['id'];
+    
     $sql = "SELECT * FROM tasks WHERE id = $id";
     $result = mysqli_query($con, $sql);
 
-    if($result){
+    if ($result) {
         $row = mysqli_fetch_assoc($result);
         $oTask = $row['task'];
     }
 
-    if(isset($_POST['submit']) && !empty($_POST['task'])){
+    if (isset($_POST['submit']) && !empty($_POST['task'])) {
         $task = $_POST['task'];
         $update = "UPDATE tasks SET id = $id, task = '$task' WHERE id = $id";
         $updateResult = mysqli_query($con, $update);
 
-        if($updateResult){
+        if ($updateResult) {
             header("location:index.php");
-        }else{
-            die (mysqli_errno($con));
+        } else {
+            die(mysqli_errno($con));
         }
     }
 ?>
@@ -35,13 +38,15 @@
 
 <body>
     <div class="container my-5">
-    <p class="h2 text-center">Add Task</p>
+        <p class="h2 text-center">Update Task</p>
         <form method="POST">
             <div class="mb-3">
                 <label for="task" class="form-label">Task</label>
                 <input type="text" class="form-control" id="task" name="task" value="<?php
-                    echo $oTask;
-                ?>">
+                                                                                        // get the task to be updated and autofill it 
+                                                                                        // in this input
+                                                                                        echo $oTask;
+                                                                                        ?>">
             </div>
             <button type="submit" class="btn btn-primary" name="submit">Update Task</button>
         </form>

@@ -1,11 +1,16 @@
 <?php
     include 'db.php';
+
+    // check when the user clicks on the add task btn
+    // and check whether the user input is empty
+    // if empty no action will be taken
     if(isset($_POST['submit']) && !empty($_POST['task'])){
         $task = $_POST['task'];
         $insert = "INSERT INTO tasks (task) VALUES ('$task')";
         $insertResult = mysqli_query($con, $insert);
 
         if($insertResult){
+            // if the task is successfully added the user will be redirected to home page
             header("location:index.php");
         }else{
             die (mysqli_errno($con));

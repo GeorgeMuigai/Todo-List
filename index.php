@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+    include 'db.php';
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +15,7 @@ include 'db.php';
 
 <body>
     <div class="container my-5">
+        <p class="h2 text-center">Your Tasks</p>
         <button type="button" class="btn btn-primary"><a href="add.php" class="text-light">Add Task</a></button>
         <table class="table">
             <thead>
@@ -36,8 +37,8 @@ include 'db.php';
                         echo '<tr>
                 <td>' . $task . '</td>
                 <td>
-                <button type="button" class="btn btn-primary"><a href="update.php?id='.$id.'" class="text-light">Update</a></button>
-                <button type="button" class="btn btn-danger"><a href="delete.php?id='.$id.'" class="text-light">Delete</a></button>
+                <button type="button" class="btn btn-primary"><a href="update.php?id=' . $id . '" class="text-light">Update</a></button>
+                <button type="button" class="btn btn-danger"><a href="delete.php?id=' . $id . '" class="text-light">Delete</a></button>
                 </td>
               </tr>';
                     }
