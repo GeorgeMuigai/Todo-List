@@ -15,11 +15,10 @@ include 'db.php';
 
 <body>
     <div class="container my-5">
-        <button type="button" class="btn btn-primary"><a href="add.php" class="text-light">Add Todo</a></button>
+        <button type="button" class="btn btn-primary"><a href="add.php" class="text-light">Add Task</a></button>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
                     <th scope="col">Task</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -35,7 +34,6 @@ include 'db.php';
                         $id = $row['id'];
                         $task = $row['task'];
                         echo '<tr>
-                <th scope="row">' . $id . '</th>
                 <td>' . $task . '</td>
                 <td>
                 <button type="button" class="btn btn-primary"><a href="update.php?id='.$id.'" class="text-light">Update</a></button>
